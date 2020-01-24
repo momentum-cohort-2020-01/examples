@@ -5,8 +5,7 @@
 }
 
 body {
-  font-family: sans-serif;
-  /* width: 800px; */
+  font-family: "Open Sans", sans-serif;
 }
 
 .page-header {
@@ -16,13 +15,24 @@ body {
   margin-bottom: 1rem;
 }
 
+.site-nav {
+  list-style-type: none;
+}
+
+.site-nav li {
+  display: inline;
+  margin-right: 1rem;
+}
+
 .nav-link {
   color: white;
 }
 
 .store-image {
   width: 50%;
+  margin-left: 1rem;
   margin-bottom: 1rem;
+  float: right;
 }
 
 .main {
