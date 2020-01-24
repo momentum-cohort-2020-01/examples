@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+
+.animal {
+  flex: 1 1 10px;
+  color: white;
+  height: 300px;
+  font-family: sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.turtle {
+  background: 
+    linear-gradient(rgba(30, 30, 30, 0.1), rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.1)), 
+    url(turtle.jpg) center/cover;
+}
+
+.panda {
+  background: 
+    linear-gradient(rgba(30, 30, 30, 0.1), rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.1)), 
+    url(panda.jpg) center/cover;
+}
+
+.parrot {
+  background: 
+    linear-gradient(rgba(30, 30, 30, 0.1), rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.1)), 
+    url(parrot.jpg) center/cover;
+}

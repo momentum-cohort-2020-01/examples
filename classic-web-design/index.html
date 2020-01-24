@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Classic Web Design</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .header {
+      background-color: pink;
+    }
+
+    .left-sidebar {
+      background-color: gray;
+    }
+
+    .main {
+      background-color: green;
+      width: 70%;
+    }
+
+    .right-sidebar {
+      background: #CCCC00;
+    }
+
+    .footer {
+      background: maroon;
+    }
+
+    .main-container {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .left-sidebar, .right-sidebar {
+      width: 15%;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>This is the header</h1>
+  </header>
+
+  <div class="main-container">
+    <nav class="left-sidebar">
+      <ul>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </nav>
+
+    <main class="main">
+      <p>Gritty the park hipster erwin square book exchange seed funding the boulevard, hub durham divas festival for the eno 147 vintage bragtown nevermore, blues incubator amshack scooter 55.</p>
+      <p>Lakewood southsquare startup stampede duke chapel city center bicycle old west, sodu dpac we want oprah dpac blackwell warehouse, university locavore fifteen five oh one alt-country eagles. Watts-hillandale eagles craft cocktail wunc baldwin lofts beard the loop north east walltown, blue devils art of cool beaver queen west village beaver queen north durham hipster people's pharmacy smoffice, the boulevard rolling hills erwin square farmer dance jazz saint joseph's.</p>
+      <p>Lemurs school of the arts erwin terrace nc central edgemont hub subaru, basketball third fridays bowtie dapper ninth street nanobrew, the double nickel angier drive startup stampede alt-country farmer's market. Skate park the loop seeds corcoran eno, the connecter people's pharmacy.</p>
+      <p>Watts-hillandale tw alexander music on the lawn trinity park biker bar ccb plaza 147 parrish street, bouncing bulldogs fayetville street alt-country main street skate park the park. Beard blackwell the west end jazz blackwell geer street the pickle, nasher pizza blue devils durham mag marry durham.</p>
+      <p>Carolina theatre festival for the eno duke slow-food wool e bull luewwd downtown main street, the connecter rtp baldwin lofts the boulevard driver street.</p>
+    </main>
+
+    <aside class="right-sidebar">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dolores in quia, magni iure harum, quos nisi ad quod dolor et enim praesentium perspiciatis ullam saepe nihil eaque fugiat eos.</p>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>This is the footer</p>
+  </footer>
+</body>
+</html>
