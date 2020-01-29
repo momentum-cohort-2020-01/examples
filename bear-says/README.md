@@ -1,0 +1,1 @@
+This is a simple demonstration of javascript event handling and dom manipulation.

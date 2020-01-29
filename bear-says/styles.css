@@ -1,0 +1,11 @@
+.message {
+  font-size: 40px;
+  color: lightseagreen;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 15px;
+}
+
+.bear {
+  font-size: 150px;
+}
