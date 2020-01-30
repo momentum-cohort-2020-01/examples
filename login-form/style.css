@@ -1,0 +1,24 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 2em;
+}
+
+h1,
+h2 {
+  color: #6dba65;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 48px;
+}
+.login-header {
+  margin-top: 50px;
+}
