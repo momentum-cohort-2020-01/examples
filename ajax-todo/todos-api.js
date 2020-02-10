@@ -1,5 +1,6 @@
 const todosApi = {
   apiUrl: 'http://localhost:3000/todos/',
+  todos: [],
 
   makeRequest: function (url, method, data) {
     const options = { method: method }
@@ -7,11 +8,20 @@ const todosApi = {
       options.headers = { 'Content-Type': 'application/json' }
       options.body = JSON.stringify(data)
     }
-    return fetch(url, options).then(response => response.json())
+    return fetch(url, options)
+      .then(response => response.json())
   },
 
   getAll: function () {
+    const setTodos = (todos) => {
+      todosApi.todos = todos
+      console.log('this', this)
+      console.log('this.todos', this.todos)
+      return todos
+    }
+
     return this.makeRequest(this.apiUrl, 'GET')
+      .then(setTodos)
   },
 
   create: function (todoText) {
