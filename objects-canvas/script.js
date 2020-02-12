@@ -1,5 +1,7 @@
 const canvas = document.querySelector('#canvas')
 const context = canvas.getContext('2d')
+const WIDTH = 500
+const HEIGHT = 500
 
 function randInt (max) {
   return Math.floor(Math.random() * max)
@@ -22,7 +24,7 @@ class Drawing {
   setup () {
     this.clear()
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
       this.points.push(new Point(randInt(500), randInt(500), randInt(5) + 1, randColor()))
     }
 
@@ -35,18 +37,18 @@ class Drawing {
   }
 
   draw () {
-    // for (const point of this.points) {
-    //   point.draw(this.context)
-    // }
+    for (const point of this.points) {
+      point.draw(this.context)
+    }
 
     this.context.strokeStyle = 'white'
     this.branch.draw(this.context)
   }
 
   update () {
-    // for (const point of this.points) {
-    //   point.move()
-    // }
+    for (const point of this.points) {
+      point.move()
+    }
 
     this.branch.update()
   }
@@ -138,10 +140,10 @@ class Point {
   }
 
   draw (context) {
-    const oldFillStyle = context.fillStyle
+    // const oldFillStyle = context.fillStyle
     context.fillStyle = this.color
     context.fillRect(this.x, this.y, this.size, this.size)
-    context.fillStyle = oldFillStyle
+    // context.fillStyle = oldFillStyle
   }
 
   move () {

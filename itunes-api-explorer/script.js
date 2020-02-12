@@ -19,7 +19,9 @@ class Song {
 
   play () {
     audioPlayer.src = this.previewUrl
-    audioPlayer.play()
+    audioPlayer.oncanplay = function () {
+      audioPlayer.play()
+    }
   }
 
   generateNode () {
