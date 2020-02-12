@@ -1,6 +1,6 @@
-// console.log(sampleData)
+import sampleData from './sample-data.js'
 
-/* globals sampleData */
+const audioPlayer = document.querySelector('audio')
 
 class Song {
   constructor (songData) {
@@ -17,19 +17,46 @@ class Song {
     return urlArray.join('/')
   }
 
-  generateHTML () {
-    return `
-      <a class="track" href="#">
-        <img src="${this.getArtworkUrl(200)}">
-        <div class="artist">${this.artist}</div>
-        <div class="songname">${this.title}</div>
-      </a>
-    `
+  play () {
+    audioPlayer.src = this.previewUrl
+    audioPlayer.play()
+  }
+
+  generateNode () {
+    const container = document.createElement('a')
+    container.classList.add('track')
+    container.href = '#'
+
+    const img = document.createElement('img')
+    img.src = this.getArtworkUrl(200)
+
+    const artist = document.createElement('div')
+    artist.classList.add('artist')
+    artist.textContent = this.artist
+
+    const songname = document.createElement('div')
+    songname.classList.add('songname')
+    songname.textContent = this.title
+
+    container.appendChild(img)
+    container.appendChild(artist)
+    container.appendChild(songname)
+
+    container.addEventListener('click', (event) => {
+      event.preventDefault()
+      this.play()
+    })
+
+    return container
   }
 }
 
-const resultEl = document.querySelector('#results')
-for (const result of sampleData.results) {
-  const song = new Song(result)
-  resultEl.insertAdjacentHTML('beforeend', song.generateHTML())
+function setupPage () {
+  const resultEl = document.querySelector('#results')
+  for (const result of sampleData.results) {
+    const song = new Song(result)
+    resultEl.appendChild(song.generateNode())
+  }
 }
+
+setupPage()
