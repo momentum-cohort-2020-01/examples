@@ -13,14 +13,17 @@
     <h1 class="site-headline">Music Explorer</h1>
   </header>
   <main>
-    <form class="search-form">
+    <form class="search-form" id="search-form">
       <div class="form-field">
         <input type="text" id="search" name="search">
         <button type="submit">Search</button>
       </div>
     </form>
     <section class="player">
-      <audio controls></audio>
+      <audio></audio>
+    </section>
+    <section class="visualizer-container">
+      <canvas id="visualizer" height="200" width="300"></canvas>
     </section>
     <section id="results" class="results">      
     </section>

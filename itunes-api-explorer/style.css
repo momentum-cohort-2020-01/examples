@@ -13,6 +13,9 @@ Colors
   --button-color: #ffd803;
   --button-text-color: #272343;
   --stroke-color: #272343;
+  --highlight-color: #ffd803;
+  --secondary-color: #e3f6f5;
+  --tertiary-color: #bae8e8;
   --default-fonts: 'IBM Plex Mono', monospace;
 }
 
@@ -89,10 +92,30 @@ body {
   text-align: center;
 }
 
+.no-results {
+  font-size: 2rem;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  text-align: center;
+}
+
+#visualizer {
+  display: none;
+}
+
+.visualizer-container {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 550px) {
   .results {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .no-results {
+    grid-column: 1 / 3;
   }
 }
 
@@ -113,6 +136,10 @@ body {
   .results {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .no-results {
+    grid-column: 2 / 2;
   }
 }
 
