@@ -1,5 +1,7 @@
 /* globals fetch */
 
+import Keyboarder from './keyboarder.js'
+
 const audioPlayer = document.querySelector('audio')
 const bodyStyles = window.getComputedStyle(document.body)
 
@@ -117,6 +119,10 @@ class Visualizer {
   constructor (canvas) {
     this.canvas = canvas
     this.context = canvas.getContext('2d')
+    this.backgroundColor = getColor('stroke')
+    this.vizColor = getColor('highlight')
+    this.radius = 20
+    this.ticks = 0
   }
 
   show () {
@@ -131,20 +137,56 @@ class Visualizer {
     this.context.fillStyle = getColor('secondary')
     this.context.font = '2rem IBM Plex Mono'
     this.context.fillText(song.title, 0, 50)
+
+    const draw = () => {
+      this.ticks += 1
+
+      if (Keyboarder.isDown(Keyboarder.KEYS.SHIFT)) {
+        this.backgroundColor = getColor('secondary')
+        this.vizColor = getColor('headline')
+        if (this.ticks % 5 === 0) {
+          this.radius = Math.random() * 10 + 10
+        }
+      } else {
+        this.backgroundColor = getColor('stroke')
+        this.vizColor = getColor('highlight')
+      }
+
+      this.clear()
+
+      const currentTime = audioPlayer.currentTime
+      const duration = audioPlayer.duration
+      if (isNaN(duration)) {
+        return
+      }
+
+      const currentPercentage = currentTime / duration
+      const canvasWidth = this.canvas.width
+      const center = currentPercentage * canvasWidth
+
+      this.context.beginPath()
+      this.context.fillStyle = this.vizColor
+      this.context.arc(center, this.canvas.height / 2, this.radius, 0, Math.PI * 2)
+      this.context.fill()
+      this.context.closePath()
+
+      requestAnimationFrame(draw)
+    }
+
+    draw()
   }
 
   clear () {
-    this.context.fillStyle = getColor('stroke')
+    this.context.fillStyle = this.backgroundColor
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height)
   }
 }
-
-window.Visualizer = Visualizer
 
 function setupPage () {
   const searchEl = document.querySelector('#search')
   const formEl = document.querySelector('#search-form')
   const viz = new Visualizer(document.querySelector('#visualizer'))
+  document.querySelector('#visualizer').width = window.innerWidth
   formEl.addEventListener('submit', function (event) {
     event.preventDefault()
     if (!searchEl.value) { return }
@@ -156,7 +198,6 @@ function setupPage () {
       .then(data => {
         const collection = new SongCollection(data.results, {
           onplay: (song) => {
-            console.log(song)
             viz.show()
             viz.clear()
             viz.visualize(song)
@@ -164,6 +205,10 @@ function setupPage () {
         })
         collection.render()
       })
+  })
+
+  window.addEventListener('resize', () => {
+    document.querySelector('#visualizer').width = window.innerWidth
   })
 }
 
