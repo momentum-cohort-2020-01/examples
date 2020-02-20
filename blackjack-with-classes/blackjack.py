@@ -12,7 +12,6 @@ class Game:
         self.player = Player("Rebecca")
         self.dealer = Dealer("Amy")
         self.deck = Deck()
-        self.score = {}
     
     def deal_one_card(self, role):
         if role == self.player:
