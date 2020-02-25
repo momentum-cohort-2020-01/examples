@@ -4,7 +4,7 @@
 <h2>Todo list</h2>
 {% endblock %}
 
-{% block todos_section %}
+{% block content %}
 {% for todo in todos %}
 <div class="todo" id="{{todo.pk}}">
   <a style="font-weight: bold;" href="{% url 'todos_detail' todo.pk %}">{{ todo.item }}</a>
