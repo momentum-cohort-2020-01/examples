@@ -1,7 +1,13 @@
-<h1>This is my HOMEPAGE!!!!!!</h1>
-
-{% for todo in todos.values %}
-
-<h4>{{todo.title}}</h4>
-
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Todos</title>{% endblock %}
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.css">
+</head>
+<h2>I WANT THIS HEADER ON EVERY PAGE</h2>
+<body>
+    {% block content %} {% endblock %}
+</body>
+</html>

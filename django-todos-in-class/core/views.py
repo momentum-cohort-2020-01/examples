@@ -4,7 +4,6 @@ from django.http import HttpResponse
 import data
 
 # Create your views here.
-def index(request):
+def notes_list(request):
     todos = data.TODOS
-    breakpoint()
-    return render(request, 'base.html', {'todos': todos})
+    return render(request, 'core/todos_list.html', {'todos': todos})
