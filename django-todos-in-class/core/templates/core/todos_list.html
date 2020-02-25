@@ -9,7 +9,7 @@
     </thead>
 <tbody>
     {% for todo in todos.values %}
-    <tr><td>{{todo.title}}</td><td>{{todo.details}}</td></tr>
+    <tr><td><a href="{% url 'todos-detail' 1 %}">{{todo.title}}</a></td><td>{{todo.details}}</td></tr></a>
     {% endfor %}
 </tbody>
 </table>
