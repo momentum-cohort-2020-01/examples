@@ -19,6 +19,8 @@ from django.urls import path
 from core import views
 
 urlpatterns = [
-    path('', views.notes_list, name ='notes-list' ),
-    path('admin/', admin.site.urls)
+    path('', views.todos_list, name="list" ),
+    path('todos/<int:pk>', views.todos_detail, name="detail"),
+    path('admin/', admin.site.urls),
 ]
+

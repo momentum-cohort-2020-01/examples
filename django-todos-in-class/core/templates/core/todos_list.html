@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+    <thead>
+        <tr><th>MY TODOS
+
+        </th>
+        </tr>
+    </thead>
+<tbody>
+    {% for todo in todos.values %}
+    <tr><td>{{todo.title}}</td><td>{{todo.details}}</td></tr>
+    {% endfor %}
+</tbody>
+</table>
+{% endblock %}
