@@ -1,16 +1,14 @@
-{% extends 'base.html' %}
-{% block content %}
-<table>
-    <thead>
-        <tr><th>MY TODOS
+{% extends "base.html" %}
 
-        </th>
-        </tr>
-    </thead>
-<tbody>
-    {% for todo in todos.values %}
-    <tr><td>{{todo.title}}</td><td>{{todo.details}}</td></tr>
-    {% endfor %}
-</tbody>
-</table>
+{% block title %}
+<h2>Todo list</h2>
+{% endblock %}
+
+{% block todos_section %}
+{% for todo in todos %}
+<div class="todo" id="{{todo.pk}}">
+  <a style="font-weight: bold;" href="{% url 'todos_detail' todo.pk %}">{{ todo.item }}</a>
+  <p>{{ todo.description }}</p>
+</div>
+{% endfor %}
 {% endblock %}
