@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}
+{% block heading %}
 <h2>Todo list</h2>
 {% endblock %}
 
 {% block content %}
 {% for todo in todos %}
 <div class="todo" id="{{todo.pk}}">
-  <a style="font-weight: bold;" href="{% url 'todos_detail' todo.pk %}">{{ todo.item }}</a>
+  <a style="font-weight: bold;" href="{% url 'todos-detail' todo.pk %}">{{ todo.item }}</a>
   <p>{{ todo.description }}</p>
 </div>
 {% endfor %}
