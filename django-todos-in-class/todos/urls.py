@@ -23,5 +23,7 @@ urlpatterns = [
     path('', views.todos_list, name='todos-list'),
     path('todos/new/', views.todos_new, name='todos-new'),
     path('todos/<int:pk>/', views.todos_detail, name='todos-detail'),
+    path('todos/<int:pk>/edit/', views.todos_edit, name='todos-edit'),
+    path('todos/<int:pk>/delete', views.todos_delete, name='todos-delete'),
     path('admin/', admin.site.urls),
 ]
