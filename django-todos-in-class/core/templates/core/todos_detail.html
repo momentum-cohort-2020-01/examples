@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="todo" id="{{ pk }}">
+<div class="todo" id="{{ todo.pk }}">
   <p style="margin: 0 25px 50px;">{{ todo.description }}</p>
   <a href="{% url 'todos-edit' todo.pk %}" class="button">Edit</a>
   <a href="{% url 'todos-delete' todo.pk %}" class="button button-danger">Delete</a>
