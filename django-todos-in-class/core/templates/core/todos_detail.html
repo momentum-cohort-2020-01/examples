@@ -5,11 +5,13 @@
 {% extends "base.html" %}
 
 {% block heading %}
-<h2>Todo {{ pk }}: {{ todo.item }} </h2>
+<h2>Todo: {{ todo.item }} </h2>
 {% endblock %}
 
 {% block content %}
 <div class="todo" id="{{ pk }}">
   <p style="margin: 0 25px 50px;">{{ todo.description }}</p>
+  <a href="{% url 'todos-edit' todo.pk %}" class="button">Edit</a>
+  <a href="{% url 'todos-delete' todo.pk %}" class="button button-danger">Delete</a>
 </div>
 {% endblock %}
