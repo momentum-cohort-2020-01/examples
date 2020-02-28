@@ -14,7 +14,7 @@ class Todo(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=40)
-    slug = models.SlugField(null=False, unique=True, default=slugify(name))
+    slug = models.SlugField(null=False, unique=True)
 
     def __str__(self):
         return f'{self.name}'

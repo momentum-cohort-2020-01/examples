@@ -5,10 +5,12 @@
 {% endblock %}
 
 {% block content %}
+<a href="{% url 'todos-new' %}" class="button">New Todo</a>
 {% for todo in todos %}
 <div class="todo" id="{{todo.pk}}">
   <a style="font-weight: bold;" href="{% url 'todos-detail' todo.pk %}">{{ todo.item }}</a>
   <p>{{ todo.description }}</p>
+  <a class='f6 link dim br-pill ph4 dib white bg-hot-pink' href='{% url "todos-by-tag" todo.tag.slug %}'>{{todo.tag}}</p>
 </div>
 {% endfor %}
 {% endblock %}
