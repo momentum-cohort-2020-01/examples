@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>These are {{tag.name}} Todos</h1>
+{% for todo in todos %}
+<ul>{{todo}}</ul>
+{% endfor %}
+{% endblock %}
