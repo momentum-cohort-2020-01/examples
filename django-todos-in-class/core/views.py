@@ -6,7 +6,7 @@ from .forms import TodoForm
 
 
 def todos_list(request):
-    todos = Todo.objects.all()
+    todos = Todo.objects.order_by('-created_at')
     return render(request, 'core/todos_list.html', {"todos": todos})
 
 
