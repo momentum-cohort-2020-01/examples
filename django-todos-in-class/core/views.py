@@ -36,7 +36,7 @@ def todos_edit(request, pk):
     else:
         form = TodoForm(instance=todo)
     
-    return render(request, 'core/todos_edit.html',{"form": form})
+    return render(request, 'core/todos_edit.html', {"form": form})
 
 def todos_delete(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
