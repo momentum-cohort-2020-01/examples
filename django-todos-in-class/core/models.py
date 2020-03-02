@@ -8,8 +8,8 @@ class Todo(models.Model):
     description = models.TextField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    tag = models.ForeignKey('Tag', on_delete=models.DO_NOTHING, null=True, blank=True)
-    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True )
+    tag = models.ForeignKey('Tag', on_delete=models.SET_NULL, null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"Todo item: {self.item} description: {self.description}"
@@ -26,3 +26,6 @@ class Tag(models.Model):
             self.slug = slugify(self.name)
         return super().save(*args, **kwargs)    
     
+class Priority(models.Model):
+    prioritizer = models.ForeignKey(User, on_delete=models.CASCADE)
+    todo = models.ForeignKey(Todo, on_delete=models.CASCADE)
