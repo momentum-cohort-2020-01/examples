@@ -1,19 +1,18 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Todo, Tag
 from .forms import TodoForm
 
-
+@login_required
 def todos_list(request):
     todos = Todo.objects.order_by('-created_at')
     return render(request, 'core/todos_list.html', {"todos": todos})
 
-
 def todos_detail(request, pk):
     todo = Todo.objects.get(pk=pk)
     return render(request, 'core/todos_detail.html', {"todo": todo, "pk": pk})
-
 
 def todos_new(request):
     if request.method == 'POST':

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
 
@@ -8,6 +9,7 @@ class Todo(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tag = models.ForeignKey('Tag', on_delete=models.DO_NOTHING, null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True )
 
     def __str__(self):
         return f"Todo item: {self.item} description: {self.description}"
