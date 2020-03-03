@@ -9,8 +9,13 @@
 {% for todo in todos %}
 <div class="todo" id="{{todo.pk}}">
   <a style="font-weight: bold;" href="{% url 'todos-detail' todo.pk %}">{{ todo.item }}</a>
+  {% if todo in priority_todos %}
+  <p style="color:chartreuse;">Render an approriate icon</p>
+  {% endif %}
   <p>{{ todo.description }}</p>
+  {% if todo.tag %}
   <a class='f6 link dim br-pill ph4 dib white bg-hot-pink' href='{% url "todos-by-tag" todo.tag.slug %}'>{{todo.tag}}</p>
-</div>
+  {% endif %}
+  </div>
 {% endfor %}
 {% endblock %}

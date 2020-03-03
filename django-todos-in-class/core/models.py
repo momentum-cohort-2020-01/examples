@@ -14,6 +14,7 @@ class Todo(models.Model):
     def __str__(self):
         return f"Todo item: {self.item} description: {self.description}"
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=40)
     slug = models.SlugField(null=False, unique=True)
@@ -27,5 +28,10 @@ class Tag(models.Model):
         return super().save(*args, **kwargs)    
     
 class Priority(models.Model):
-    prioritizer = models.ForeignKey(User, on_delete=models.CASCADE)
-    todo = models.ForeignKey(Todo, on_delete=models.CASCADE)
+    prioritizer = models.ForeignKey(User, related_name="priorities", on_delete=models.CASCADE)
+    todo = models.ForeignKey(Todo, related_name="priorities", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Prioritizer: {self.prioritizer}, Todo: {self.todo}'
+
+    
