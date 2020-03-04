@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="cows" class="flex">
+{% for cow in cows %}
+<article class="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+    <div class="tc">
+      <img src={{cow.img_url}} class="br-100 h3 w3 dib" title="Photo of a kitty staring at you">
+      <h1 class="f4">{{cow}}</h1>
+      <hr class="mw3 bb bw1 b--black-10">
+    </div>
+    <p class="tc black-70">
+        <!-- this will become a hyperlink -->
+      Vote for this cow
+    </p>
+  </article>
+{% endfor %}
+
+{% endblock %}
