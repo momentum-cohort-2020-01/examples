@@ -22,11 +22,12 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="home"),
+    path('votes/', views.vote, name="vote)",
     path('accounts/', include('registration.backends.default.urls'))
 ]
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns = [
+    urlpatterns=[
         path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
