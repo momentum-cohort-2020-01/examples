@@ -10,6 +10,9 @@ class Cow(models.Model):
     def __str__(self):
         return f'{self.name} the {self.breed}'
 
+    @property
+    def get_vote_count(self):
+        return len(self.votes.all())
 
 
 class Vote(models.Model):
