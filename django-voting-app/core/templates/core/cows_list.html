@@ -5,15 +5,12 @@
 {% for cow in cows %}
 <article class="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
     <div class="tc">
-      <img src={{cow.img_url}} class="br-100 h3 w3 dib" title="Photo of a kitty staring at you">
+      <img src={{cow.img_url}} class="br-100 h3 w3 dib" title="Photo of a cow">
       <h1 class="f4">{{cow}}</h1>
       <hr class="mw3 bb bw1 b--black-10">
     </div>
-    <p class="tc black-70">
-        <!-- this will become a hyperlink -->
-      Vote for this cow
-    </p>
-  </article>
+    <p class='tc black-7'><a href="{% url 'vote' cow.pk %}">Vote for this cow</a></p>
+    <p class='tc black-7'>This cow has {{cow.get_vote_count}} votes</p>
+</article>
 {% endfor %}
-
 {% endblock %}
