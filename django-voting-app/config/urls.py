@@ -22,6 +22,7 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="home"),
+    path('vote/<int:cow_pk>', views.vote, name='vote'),
     path('accounts/', include('registration.backends.default.urls'))
 ]
 
